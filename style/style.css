@@ -1,0 +1,262 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* color */
+    --green-200: hsl(148, 38%, 91%);
+    --green-600: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 54%);
+    --white: hsl(0, 0%, 100%);
+    --grey-500: hsl(186, 15%, 59%);
+    --grey-900: hsl(187, 24%, 22%);
+    /* font */
+    --main-font: "Karla", sans-serif;
+    --bold-weight: 700;
+    --normal-weight: 400;
+    --font-size-base: 1rem;
+    --font-size-lg: 2.5rem;
+    --font-size-md: 0.75rem;
+    --font-size-sm: 0.5rem;
+    /* spacing and margins */
+    --border-radius: 1rem;
+    --border-radius-inputbox: 0.5rem;
+    --spacing-unit: 1rem;
+    --spacing-sm: 0.5rem;
+    --spacing-lg: 3rem;
+    /* width and height */
+    --dot-size: 1rem;
+    --checkbox-size: 1rem;
+    --message-width: 28rem;
+}
+
+body {
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--green-200);
+    color: var(--grey-900);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--white);
+    padding: var(--spacing-unit);
+    gap: var(--spacing-unit);
+    margin: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    gap: var(--spacing-unit);
+    margin-top: var(--spacing-lg);
+}
+
+.contact-form__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.contact-form__name-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-unit);
+}
+
+.contact-form__label {
+    font-size: var(--font-size-md);
+}
+
+.contact-form__agreement::after,
+.contact-form__label::after {
+    content: " *";
+    font-weight: var(--bold-weight);
+    color: var(--green-600);
+}
+
+.contact-form__input {
+    font-family: var(--main-font);
+    border-radius: var(--border-radius-inputbox);
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-unit);
+    border-style: solid;
+    border-color: var(--grey-500);
+    outline-color: var(--green-600);
+    cursor: pointer;
+}
+
+.contact-form__radio-group:hover,
+.contact-form__input:hover {
+    border-color: var(--green-600);
+}
+
+.contact-form__error {
+    color: var(--red);
+    font-size: var(--font-size-md);
+}
+
+.contact-form__option {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+}
+
+.contact-form__legend {
+    margin-bottom: var(--spacing-unit);
+}
+
+.contact-form__query-type {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: var(--spacing-unit);
+}
+
+.contact-form__radio-group {
+    position: relative;
+    border-style: solid;
+    border-radius: var(--border-radius-inputbox);
+    border-color: var(--grey-500);
+    padding: var(--spacing-sm) calc(var(--spacing-unit) * 2.5);
+    cursor: pointer;
+}
+
+.contact-form__radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.contact-form__radio-group label{
+    cursor: pointer;
+}
+
+.contact-form__radio-group label::before {
+    content: '';
+    position: absolute;
+    left: var(--spacing-unit);
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border: solid var(--grey-500);
+    border-radius: 50%;
+}
+
+.contact-form__radio-group:has(input:checked) {
+    border-color: var(--green-600);
+    background-color: var(--green-200);
+}
+
+.contact-form__radio-group input[type="radio"]:checked + label::before {
+    background-image: url('../assets/images/icon-radio-selected.svg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.contact-form__textarea {
+    resize: none;
+    border-color: var(--grey-500);
+    border-radius: var(--border-radius-inputbox);
+    outline-color: var(--green-600);
+    font-family: var(--main-font);
+    padding: var(--spacing-sm);
+}
+
+.contact-form__agreement {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    user-select: none;
+}
+
+.contact-form__agreement input[type="checkbox"] {
+    appearance: none;
+}
+
+.contact-form__agreement::before {
+    content: '';
+    display: inline-block;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    border: solid var(--grey-500);
+    margin-right: calc(var(--spacing-unit) *  0.5);
+} 
+
+.contact-form__agreement:has(input[type="checkbox"]:checked)::before {
+    border-color: var(--green-600);
+    background-image: url('../assets/images/icon-checkbox-check.svg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contact-form__submit {
+    font-family: var(--main-font);
+    color: var(--white);
+    font-weight: var(--bold-weight);
+    background-color: var(--green-600);
+    padding: var(--spacing-sm);
+    border: solid transparent;
+    border-radius: var(--border-radius-inputbox);
+    outline-color: var(--green-200);
+}
+
+.contact-form__submit:hover {
+    background-color: var(--grey-900);
+}
+
+.success-message {
+    background-color: var(--grey-900);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-unit);
+    gap: var(--spacing-unit);
+    border: none;
+    position: fixed;
+    transform: translateX(-50%);
+    left: 50%;
+    top: var(--spacing-unit);
+    max-width: calc(100% - var(--spacing-lg));
+    width: var(--message-width);
+}
+
+@media screen and (min-width: 50rem) {
+    .contact-form__name-fields {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .contact-form__query-type {
+        flex-direction: row;
+        justify-content:space-evenly;
+    }
+}
+
+.attribution { 
+    font-size: var(--font-size-sm); 
+    text-align: center; 
+    margin-top: var(--spacing-lg);
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+.input-invalid {
+    border-color: var(--red);
+}
+
+.hidden {
+    display: none;
+}

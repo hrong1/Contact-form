@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Contact form</title>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+  <main>
+    <form class="contact-form" id="contact-form">
+      <h1 class="contact-form__title">Contact Us</h1>
+      <div class="contact-form__name-fields">
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="first-name">First Name</label>
+          <input class="contact-form__input" type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+          <p class="contact-form__error hidden" id="first-name-error">This field is required</p>
+        </div>
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="last-name">Last Name</label>
+          <input class="contact-form__input" type="text" id="last-name" name="last-name" autocomplete="family-name" required>
+          <p class="contact-form__error hidden" id="last-name-error">This field is required</p>
+        </div>
+      </div>
+      <div class="contact-form__group">
+        <label class="contact-form__label" for="email">Email Address</label>
+        <input class="contact-form__input" type="email" id="email" name="email" autocomplete="email" required>
+        <p class="contact-form__error hidden" id="email-error">Please enter a valid email address</p>
+      </div>
+      <div class="contact-form__option">
+        <fieldset class="contact-form__query-type">
+          <legend class="contact-form__legend contact-form__label">Query Type</legend>
+
+          <div class="contact-form__radio-group">
+            <input type="radio" id="general" name="query-type" value="general" required>
+            <label for="general">General Enquiry</label>
+          </div>
+
+          <div class="contact-form__radio-group">
+            <input type="radio" id="request" name="query-type" value="request" required>
+            <label for="request">Support Request</label>
+          </div>
+        </fieldset>
+        <p class="contact-form__error hidden" id="query-error">Please select a query type</p>
+      </div>
+
+      <div class="contact-form__group">
+        <label class="contact-form__label" for="message">Message</label>
+        <textarea class="contact-form__textarea" id="message" name="message" rows="5" required></textarea>
+        <p class="contact-form__error hidden" id="message-error">
+          This field is required
+        </p>
+      </div>
+
+      <div class="contact-form__group contact-form__group--checkbox">
+        <label class="contact-form__agreement" for="agreement">
+          <input type="checkbox" id="agreement" name="agreement" value="agreement" required>
+          I consent to being contacted by the team
+        </label>
+        <p class="contact-form__error hidden" id="agreement-error">
+          To submit this form, please consent to being contacted
+        </p>
+      </div>
+
+      <button type="submit" class="contact-form__submit" id="submit-button">
+        Submit
+      </button>
+    </form>
+    <dialog class="success-message" id="success-message">
+      <h3 class="success-message__title">
+        <img src="./assets/images/icon-success-check.svg" alt="">
+        Message Sent!
+      </h3>
+      <p class="success-message__statement">
+        Thanks for completing the form. We'll be in touch soon!
+      </p>
+    </dialog>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
+    target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/hrong1/Contact-form"
+    target="_blank" rel="noopener noreferrer">Haorong Rong</a>.
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
